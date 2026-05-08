@@ -31,4 +31,4 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
           account_sid: ${{ secrets.ACCOUNT_SID }}
           auth_token: ${{ secrets.AUTH_TOKEN }}
-        run: python Weather Warning
+        run: python weather_alert.py
