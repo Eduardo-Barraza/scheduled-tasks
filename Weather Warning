@@ -1,8 +1,5 @@
 import requests
 import json
-import pandas as pd
-
-# Download the helper library from https://www.twilio.com/docs/python/install
 import os
 from twilio.rest import Client
 
@@ -20,26 +17,6 @@ response = requests.get(url, params={
 print(response.status_code)
 response.raise_for_status()
 APIdata = response.json()
-#print(APIdata)
-
-list = APIdata["list"][0]["weather"]
-#print(list)
-
-dictionary = APIdata["list"][0]["weather"][0]
-#print(dictionary)
-
-key = APIdata["list"][0]["weather"][0]["id"]
-#print(key)
-
-key2 = APIdata["list"]
-#print(f"this is {key2}")
-
-# for i in range (len(APIdata["list"])):
-#     weather_code = APIdata["list"][i]["weather"][0]["id"]
-#     if weather_code < 700:
-#         print("Bring an umbrella")
-#     print (APIdata["list"][i]["weather"][0]["id"])
-
 
 will_rain = False
 for hour_code in APIdata["list"]:
@@ -58,13 +35,4 @@ if will_rain:
             to='whatsapp:+12015393721'
         )
 
-        #print(message.sid)
-
-#data = pd.DataFrame([APIdata["list"][0]["weather"][0]["id"]])
-# data1 = pd.DataFrame(APIdata["list"][1]["weather"][0]["id"])
-# data2 = pd.DataFrame(APIdata["list"][2]["weather"][0]["id"])
-# data3 = pd.DataFrame(APIdata["list"][3]["weather"][0]["id"])
-
-
-#print(data)
 
